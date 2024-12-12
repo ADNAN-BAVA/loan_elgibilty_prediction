@@ -1,141 +1,136 @@
-<h1 align="center">Loan Eligibility Prediction </h1>
-<p align="center">using <b>SAS Studio</b></p><br>
-<div align="center">
+# Loan Eligibility Prediction Using SAS
 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)  [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)  [![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
+> A comprehensive project to predict loan approval for SMEs using SAS, focusing on advanced data analysis, logistic regression, and reporting techniques.
 
-</div>
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-# METADATA
-<table style="width:100%">
-  <thead>
-    <tr>
-      <th style="text-align:center; font-weight: bold; font-size:14px">Variable Name</th>
-      <th style="text-align:center; font-weight: bold; font-size:14px">Description</th>
-      <th style="text-align:center; font-weight: bold; font-size:14px">Sample Data</th>
-      <th style="text-align:center; font-weight: bold; font-size:14px">Available in Data Set</th>
-      <th style="text-align:center; font-weight: bold; font-size:14px">Variabel Type</th>
-      <th style="text-align:center; font-weight: bold; font-size:14px">Data Type</th>
-      <th style="text-align:center; font-weight: bold; font-size:14px">Length</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>SME_LOAN_ID_NO</td>
-    <td>Loan reference number <br> (unique ID)</td>
-    <td>TRAINING_DS, TESTING_DS</td>
-    <td>Categorical</td>
-    <td>Char</td>
-    <td>8</td>
-    <td>LP001002; LP001003; …</td>
-  </tr>
-  <tr>
-    <td>GENDER</td>
-    <td>Applicant gender <br> (Male or Female)</td>
-    <td>TRAINING_DS, TESTING_DS</td>
-    <td>Categorical</td>
-    <td>Char</td>
-    <td>6</td>
-    <td>Male; Female</td>
-  </tr>
-  <tr>
-    <td>MARITAL_STATUS</td>
-    <td>Applicant marital status <br> (Married or not married)</td>
-    <td>TRAINING_DS, TESTING_DS</td>
-    <td>Categorical</td>
-    <td>Char</td>
-    <td>11</td>
-    <td>Married; Not Married</td>
-  </tr>
-  <tr>
-    <td>FAMILY_MEMBERS</td>
-    <td>Numberof family members owned by applicant</td>
-    <td>TRAINING_DS, TESTING_DS</td>
-    <td>Categorical</td>
-    <td>Char</td>
-    <td>2</td>
-    <td>0;1; 2; 3+</td>
-  </tr>
-  <tr>
-    <td>QUALIFICATION</td>
-    <td>Applicant qualification <br> (graduate or under graduate)</td>
-    <td>TRAINING_DS, TESTING_DS</td>
-    <td>Categorical</td>
-    <td>Char</td>
-    <td>14</td>
-    <td>Graduate; Under Graduate</td>
-  </tr>
-  <tr>
-    <td>EMPLOYMENT</td>
-    <td>Applicant employment status <br> (yes or no)</td>
-    <td>TRAINING_DS, TESTING_DS</td>
-    <td>Categorical</td>
-    <td>Char</td>
-    <td>3</td>
-    <td>Yes; No</td>
-  </tr>
-  <tr>
-    <td>CANDIDATE_INCOME</td>
-    <td>Applicant’s monthly salary/income</td>
-    <td>TRAINING_DS, TESTING_DS</td>
-    <td>Continuous</td>
-    <td>Numeric</td>
-    <td>8</td>
-    <td>5849; 4583; …</td>
-  </tr>
-  <tr>
-    <td>GUARANTEE_INCOME</td>
-    <td>Earnings of both applicants</td>
-    <td>TRAINING_DS, TESTING_DS</td>
-    <td>Continuous</td>
-    <td>Numeric</td>
-    <td>8</td>
-    <td>1508; 2358; …</td>
-  </tr>
-  <tr>
-    <td>LOAN_AMOUNT</td>
-    <td>Loan amount <br> (in thousands)</td>
-    <td>TRAINING_DS, TESTING_DS</td>
-    <td>Continuous</td>
-    <td>Numeric</td>
-    <td>8</td>
-    <td>128; 66; …</td>
-  </tr>
-  <tr>
-    <td>LOAN_DURATION</td>
-    <td>The loan’s repayment period</td>
-    <td>TRAINING_DS, TESTING_DS</td>
-    <td>Categorical</td>
-    <td>Numeric</td>
-    <td>8</td>
-    <td>360; 120; …</td>
-  </tr>
-  <tr>
-    <td>LOAN_HISTORY</td>
-    <td>Records of previous loans</td>
-    <td>TRAINING_DS, TESTING_DS</td>
-    <td>Categorical</td>
-    <td>Numeric</td>
-    <td>8</td>
-    <td>0; 1</td>
-  </tr>
-  <tr>
-    <td>LOAN_LOCATION</td>
-    <td>The location of loan (city/village/town)</td>
-    <td>TRAINING_DS, TESTING_DS</td>
-    <td>Categorical</td>
-    <td>Char</td>
-    <td>7</td>
-    <td>City; Village; Town</td>
-  </tr>
-  <tr>
-    <td>LOAN_APPROVAL_STATUS</td>
-    <td>Approval status of loan</td>
-    <td>TESTING_DS</td>
-    <td>Categorical</td>
-    <td>Char</td>
-    <td>1</td>
-    <td>Y; N</td>
-  </tr>
-</tbody>
-</table>
+---
+
+## Table of Contents
+1. [Project Overview](#project-overview)
+2. [Goals and Objectives](#goals-and-objectives)
+3. [Dataset Details](#dataset-details)
+4. [Methodology](#methodology)
+5. [Analysis Highlights](#analysis-highlights)
+6. [Key Findings](#key-findings)
+7. [Technologies and Tools](#technologies-and-tools)
+8. [Future Enhancements](#future-enhancements)
+
+
+---
+
+## Project Overview
+This project, undertaken for **Lasiandra Finance Inc.**, focuses on using SAS to streamline loan approval processes for small and medium enterprises (SMEs). By analyzing borrower characteristics and historical data, the project builds predictive models to forecast loan eligibility efficiently.
+
+**Key Features:**
+- Predict loan approval using logistic regression.
+- Address missing data through advanced imputation methods.
+- Provide comprehensive visualizations and reports using SAS ODS.
+
+---
+
+## Goals and Objectives
+- **Primary Goal:** Improve decision-making and operational efficiency for SME loan approvals.
+- **Specific Objectives:**
+  - Develop a robust logistic regression model to predict loan approval status.
+  - Identify key variables impacting loan decisions.
+  - Generate actionable insights through detailed reporting and visualization.
+
+---
+
+## Dataset Details
+### Overview
+The project utilizes two datasets:
+1. **Training Dataset (`LIB77702.TRAINING_DS`)**
+2. **Testing Dataset (`LIB77702.TESTING_DS`)**
+
+### Variables in the Dataset
+| Variable Name           | Description                                | Data Type | Sample Values             |
+|--------------------------|--------------------------------------------|-----------|---------------------------|
+| `SME_LOAN_ID_NO`        | Loan application number                   | Char      | LP001002, LP001003        |
+| `GENDER`                | Gender of the applicant                   | Char      | Male, Female              |
+| `MARITAL_STATUS`        | Marital Status                            | Char      | Married, Not Married      |
+| `FAMILY_MEMBERS`        | Number of family members                  | Char      | 1, 2, 3+                  |
+| `QUALIFICATION`         | Education level                           | Char      | Graduate, Undergraduate   |
+| `CANDIDATE_INCOME`      | Applicant's income                        | Numeric   | 5849, 4583                |
+| `GUARANTEE_INCOME`      | Co-applicant's income                     | Numeric   | 1508, 2358                |
+| `LOAN_AMOUNT`           | Loan amount requested                     | Numeric   | 128, 66, 120              |
+| `LOAN_DURATION`         | Loan tenure duration                      | Numeric   | 71, 360                   |
+| `LOAN_HISTORY`          | Previous loan history                     | Numeric   | 0 (No), 1 (Yes)           |
+| `LOAN_LOCATION`         | Location type                             | Char      | City, Town, Village       |
+| `LOAN_APPROVAL_STATUS`  | Loan approval decision                    | Char      | Y (Yes), N (No)           |
+
+**Handling Missing Data:**
+- Missing values imputed using statistical methods such as mode for categorical variables and mean for continuous variables.
+
+---
+
+## Methodology
+### Step 1: Data Preparation
+- Load datasets into the SAS permanent library.
+- Clean and preprocess data.
+- Handle missing values systematically:
+  - Categorical variables: Mode-based imputation.
+  - Continuous variables: Mean-based imputation.
+
+### Step 2: Exploratory Data Analysis
+- **Univariate Analysis:**
+  - Understand individual variable distributions.
+  - Identify missing values and outliers.
+- **Bivariate Analysis:**
+  - Examine relationships between categorical and continuous variables.
+  - Insights into correlations affecting loan approval.
+
+### Step 3: Predictive Modeling
+- **Model Used:** Logistic Regression
+- **Implementation:**
+  - Train the model using `PROC LOGISTIC` in SAS.
+  - Evaluate model accuracy using key metrics (e.g., precision, recall).
+
+### Step 4: Visualization and Reporting
+- Generate visual insights using SAS ODS:
+  - Bar charts, pie charts, and stacked charts.
+- Create reports summarizing:
+  - Loan approval trends.
+  - Variable impacts on decisions.
+
+---
+
+## Analysis Highlights
+### Univariate Analysis
+- **Gender Distribution:** 
+  - 81.36% Male, 18.64% Female.
+- **Marital Status:**
+  - 65.14% Married, 34.86% Not Married.
+- **Loan Amount:**
+  - Average: $146.41 | Min: $9 | Max: $700.
+
+### Bivariate Analysis
+- **Gender vs. Loan Amount:**
+  - Average for Males: $149.27.
+  - Average for Females: $126.70.
+- **Loan History vs. Approval Status:**
+  - 82.54% of applicants with a loan history are approved.
+
+---
+
+## Key Findings
+- Logistic regression provides reliable predictions for loan eligibility.
+- Missing data handling significantly improved model performance.
+- Key factors influencing approvals:
+  - Applicant income.
+  - Previous loan history.
+  - Marital status.
+
+---
+
+## Technologies and Tools
+- **SAS:** Core tool for data analysis, modeling, and visualization.
+- **SAS MACRO:** For automation and efficient dataset handling.
+- **SAS ODS:** To generate professional reports and charts.
+
+---
+## Future Enhancements
+- Integrate advanced machine learning models like decision trees and random forests for comparison.
+- Enhance reporting with interactive dashboards.
+- Implement real-time loan prediction through web-based SAS integration.
