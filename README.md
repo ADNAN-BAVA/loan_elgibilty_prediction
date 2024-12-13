@@ -13,8 +13,9 @@
 4. [Methodology](#methodology)
 5. [Analysis Highlights](#analysis-highlights)
 6. [Key Findings](#key-findings)
-7. [Technologies and Tools](#technologies-and-tools)
-8. [Future Enhancements](#future-enhancements)
+7. [Result of Logistic Regression](#result-of-logistic-regression)
+8. [Technologies and Tools](#technologies-and-tools)
+9. [Future Enhancements](#future-enhancements)
 
 
 ---
@@ -121,6 +122,18 @@ The project utilizes two datasets:
   - Applicant income.
   - Previous loan history.
   - Marital status.
+
+---
+
+## Result of Logistic Regression
+
+<div align="center">
+    <img src="https://github.com/user-attachments/assets/742cf83a-4c33-4c10-b766-c576bad9a4eb" alt="image">
+</div>
+
+- The report forecasts loan approval outcomes based on key variables like income, marital status, and gender.
+- Each loan case includes predicted probabilities of acceptance and rejection.
+- Generated reports validate model accuracy and communicate findings to decision-makers in loan approval processes.
 
 ---
 
